@@ -1,0 +1,20 @@
+{
+    "name": "reproduction-case",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "rm -rf build && parcel src/manifest.json --dist-dir build",
+        "build": "rm -rf build dist && yarn parcel build src/manifest.json --dist-dir build --no-optimize && yarn web-ext build -s build -a dist",
+        "attach-firefox": "web-ext run --verbose -s build"
+    },
+    "dependencies": {
+        "webextension-polyfill": "^0.9.0"
+    },
+    "devDependencies": {
+        "@parcel/config-webextension": "^2.5.0",
+        "@parcel/core": "^2.5.0",
+        "parcel": "^2.5.0",
+        "web-ext": "^6.8.0"
+    }
+
+}
